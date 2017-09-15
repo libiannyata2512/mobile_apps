@@ -14,7 +14,7 @@ public class Communicator {
     private static final String TAG = "Communicator";
     private static final String SERVER_URL = "http://192.168.88.112:8000/";
 
-    public void locationPost(String salesman, String distributor, int battery, String lat, String lng) {
+    public void locationPost(String slsno, String dist, int battery, String la, String lg) {
         //Here a logging interceptor is created
         HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
         logging.setLevel(HttpLoggingInterceptor.Level.BODY);
@@ -31,7 +31,7 @@ public class Communicator {
                 .build();
         RestInterface service = retrofit.create(RestInterface.class);
 
-        Call<ServerResponse> call = service.post(salesman, distributor, battery, lat, lng);
+        Call<ServerResponse> call = service.post(slsno, dist, battery, la, lg);
 
         call.enqueue(new Callback<ServerResponse>() {
             @Override

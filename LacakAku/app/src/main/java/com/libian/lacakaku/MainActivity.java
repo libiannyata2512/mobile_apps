@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private final static String TAG = "MainActivity";
     public static Bus bus;
     int battery;
-    String salesman, distributor, lat, lng;
+    String slsno, dist, la, lg;
 
     private BroadcastReceiver mBatInfoReceiver = new BroadcastReceiver(){
         @Override
@@ -37,18 +37,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         communicator = new Communicator();
-
-        CoordinateHelper.getCoordinate(MainActivity.this);
-        final double la = CoordinateHelper.getLatitude();
-        final double lg = CoordinateHelper.getLongitude();
-
         this.registerReceiver(this.mBatInfoReceiver, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
 
-        salesman = "10001";
-        distributor = "3015070009";
-        lat = Double.toString(la);
-        lng = Double.toString(lg);
-
+        slsno = "10001";
+        dist = "3015070009";
         final Button postData = (Button) findViewById(R.id.postData);
 
         postData.setOnClickListener(new View.OnClickListener() {
@@ -66,9 +58,9 @@ public class MainActivity extends AppCompatActivity {
                                     @Override
                                     public void run() {
                                         CoordinateHelper.getCoordinate(MainActivity.this);
-                                        lat = Double.toString(CoordinateHelper.getLatitude());
-                                        lng = Double.toString(CoordinateHelper.getLongitude());
-                                        usePost(salesman, distributor, battery, lat, lng);
+                                        la = Double.toString(CoordinateHelper.getLatitude());
+                                        lg = Double.toString(CoordinateHelper.getLongitude());
+                                        usePost(slsno, dist, battery, la, lg);
                                     }
                                 });
                                 Thread.sleep(30000); // 1000 = 1 seconds
@@ -83,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void usePost(String salesman, String distributor, int battery, String lat, String lng){
-        communicator.locationPost(salesman, distributor, battery, lat, lng);
+    private void usePost(String slsno, String dist, int battery, String la, String lg){
+        communicator.locationPost(slsno, dist, battery, la, lg);
     }
 }

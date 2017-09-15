@@ -5,45 +5,39 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 
 public class ServerResponse implements Serializable {
-    @SerializedName("salesman_id")
-    private String salesman;
-    @SerializedName("distributor_id")
-    private String distributor;
-    @SerializedName("battery_status")
+    @SerializedName("slsno")
+    private String slsno;
+    @SerializedName("dist")
+    private String dist;
+    @SerializedName("battery")
     private int battery;
-    @SerializedName("return_lat")
-    private String lat;
-    @SerializedName("return_lng")
-    private String lng;
-    @SerializedName("message")
-    private String message;
-    @SerializedName("response_code")
-    private int responseCode;
+    @SerializedName("la")
+    private String la;
+    @SerializedName("lg")
+    private String lg;
 
-    public ServerResponse(String salesman, String distributor, int battery, String lat, String lng, String message, int responseCode) {
-        this.salesman = salesman;
-        this.distributor = distributor;
+    public ServerResponse(String slsno, String dist, int battery, String la, String lg) {
+        this.slsno = slsno;
+        this.dist = dist;
         this.battery = battery;
-        this.lat = lat;
-        this.lng = lng;
-        this.message = message;
-        this.responseCode = responseCode;
+        this.la = la;
+        this.lg = lg;
     }
 
-    public String getSalesman() {
-        return salesman;
+    public String getSlsno() {
+        return slsno;
     }
 
-    public void setSalesman(String salesman) {
-        this.salesman = salesman;
+    public void setSlsno(String slsno) {
+        this.slsno = slsno;
     }
 
-    public String getDistributor() {
-        return distributor;
+    public String getDist() {
+        return dist;
     }
 
-    public void setDistributor(String distributor) {
-        this.distributor = distributor;
+    public void setDist(String dist) {
+        this.dist = dist;
     }
 
     public int getBattery() {
@@ -54,35 +48,19 @@ public class ServerResponse implements Serializable {
         this.battery = battery;
     }
 
-    public String getLat() {
-        return lat;
+    public String getLa() {
+        return la;
     }
 
-    public void setLat(String lat) {
-        this.lat = lat;
+    public void setLa(String la) {
+        this.la = la;
     }
 
-    public String getLng() {
-        return lng;
+    public String getLg() {
+        return lg;
     }
 
-    public void setLng(String lng) {
-        this.lng = lng;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public int getResponseCode() {
-        return responseCode;
-    }
-
-    public void setResponseCode(int responseCode) {
-        this.responseCode = responseCode;
+    public void setLg(String lg) {
+        this.lg = lg;
     }
 }

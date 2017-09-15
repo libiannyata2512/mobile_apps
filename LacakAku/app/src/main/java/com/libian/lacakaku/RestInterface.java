@@ -9,10 +9,10 @@ public interface RestInterface {
     @FormUrlEncoded
     @POST("/api/location")
     Call<ServerResponse> post(
-            @Field("salesman") String salesman,
-            @Field("distributor") String distributor,
+            @Field("slsno") String salesman,
+            @Field("dist") String distributor,
             @Field("battery") int battery,
-            @Field("lat") String lat,
-            @Field("lng") String lng
+            @Field("la") String lat,
+            @Field("lg") String lng
     );
 }
